@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>关于企业级Linux</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="linux,redhat,红帽,企业级linux">
+        <meta name="description" content="从2005年开始，SUSE与红帽的战争就没停过。这很不利于Linux社区，因为它们都是技术巨头。Canonical没什么技术，对于Debian社区就是吸血者，用商业宣传得到了那么多市场份额，这点到后面会讲。这篇文章主要分析这些巨头发行版的商业模式。">
+        <meta name="author" content="xkicdt">
+        <style type="text/css">
+            h1 {text-align: center;font-size: 64px;}
+            h2 {font-size: 32px;}
+            h3 {font-size: 16px;text-indent: 32px;}
+            h4 {font-size: 16px;}
+            h5 {font-size: 48px;}
+            p {
+                word-break: break-all;
+                text-indent: 32px;
+                font-size: 16xp;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1>PowerShell的使用</h1>
+            <h5>前言</h5>
+            <p>我写这篇文章是什么目的呢？首先，Windows有90%的市场份额，但是大部分用户都是低端用户，因为微软要抢占市场，所以要把Windows做的简单易用，大部分操作都不需要命令行，只需要在图形界面点几个按钮就行了。但是这样偏偏降低了效率，有时在命令行下只用20个字符就能完成的操作，得在图形界面点30次。这就是为何Windows Server Core砍掉图形界面的原因，因为不需要。还有，图形界面在进行大型的、复杂的操作时易点错，但是确实更加简单，降低运维成本。但这样缺点就显现出来了，Windows Server的运维到大街上随便拉一个就行，所以运维水平普遍低。砍掉了图形界面的Windows Server Core稳定性不比Linux差，至少比Ubuntu Server强，但是低质量运维导致了Windows不稳定的骂名，其实是低质量运维不想承认罢了。Windows也有脚本，比如*.cmd/*.vbs/*.bat，但是很少人用，只有高端用户才用。Windows不比*nix差，什么脚本、命令行操作都一应俱全，并且PowerShell还比多数*nix shell强大，但是会用的人少。说来就是宣传一下PowerShell。</p>
+            <h2>PowerShell语法</h2>
+            <p>PowerShell使用cmdlet形式语法，也就是[动词-名词]式的语法。例如Get-Command，就是获取帮助。同样的，PowerShell也照顾了从cmd或bash转来的用户，例如列出指定目录下的文件在bash里就是ls，在cmd里就是dir，在PowerShell里就是Get-ChildItem，但是你在PowerShell里使用ls或dir也是没有问题的。同时wget、cat、echo等命令也是可以的，它们在PowerShell里分别是Invoke-WebRequest和Get-Content还有Write-Output。</p>
+            <h2>PowerShell常用命令</h2>
+            <p>一个长期使用其他Shell的人可能已经形成了肌肉记忆，清屏要打clear，列出文件要ls。这些在PowerShell里面都可以用。下面是常用命令：</p>
+            <h3>PowerShell		    bash	        cmd</h3>
+            <h3>Get-ChildItem	    ls		        dir</h3>
+            <h3>Get-Content		    cat		        未知</h3>
+            <h3>Write-Output	    echo	        echo</h3>
+            <h3>Clear-Host		    clear	        cls</h3>
+            <h3>Set-Location	    cd              cd</h3>
+            <h3>Get-Command	        未知            未知</h3>
+            <p>使用Get-Command不加参数，会列出所有可用命令</p>
+            <p>PowerShell自带了一个[管道]，它比bash的管道强大多了，*nix shell只有Elvish能与它媲美。</p>
+            <h2>PowerShell社区</h2>
+            <h4>PowerShell是开源的。</h4><p>这就代表它有一个社区。项目地址https://github.com/microsoft/powershell这个社区很活跃，每天有源源不断的代码贡献。而且它不仅仅有Windows平台的版本，还有Linux平台的版本。</p>
+        </article>
+    </body>
+</html>
