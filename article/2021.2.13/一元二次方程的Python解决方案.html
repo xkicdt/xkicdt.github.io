@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>一元二次方程的Python解决方案</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="一元二次方程,python">
+        <meta name="description" content="Python是一门高级脚本语言，简单易学，能完成许多普通任务。这篇文章我会把Python和C语言解法的代码都写出来，最后比较一下。">
+        <meta name="author" content="xkicdt">
+        <style type="text/css">
+            h1 {text-align: center;font-size: 64px;}
+            h2 {font-size: 32px;}
+            h3 {font-size: 48px;}
+            p {
+                word-break: break-all;
+                text-indent: 32px;
+                font-size: 16xp;
+            }
+            py {
+                font-size: 16px;color: gold;
+            }
+            c {
+                font-size: 16px;color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1>一元二次方程的Python解决方案</h1>
+            <h3>前言</h3>
+            <p>Python是一门高级脚本语言，简单易学，能完成许多普通任务。但这个高级语言并不是真的“功能多”，虽然它的库多，但是C++也有这么多库。写3D游戏必须用Java、C/C++等，脚本语言是不行的。还有操作系统，这个C++也少，多数为原汁原味的C。C用来写操作系统真的是得天独厚，Linux、Windows、XNU、Hurd、BSD、Unix全是C写的。但是C在完成简单任务时就会很复杂，这时Python的优势就显现出来。一元二次方程的解决不对时间、性能敏感，这种情况下使用Python非常合适。这篇文章我会把Python和C语言解法的代码都写出来，最后比较一下。</p>
+            <h2>Python</h2>
+            <py>import cmath;<br>a = int(input("Please input a = "))<br>b = int(input("Please input b = "))<br>c = int(input("Please input c = "))<br>delta = (b * b) - (4 * a * c)<br>if delta > 0:<br>&emsp;x1 = ((-b) + cmath.sqrt(delta)) / (2 * a)<br>&emsp;x2 = ((-b) - cmath.sqrt(delta)) / (2 * a)<br>&emsp;print("Two return: x1 = ", x1, ", x2 = "; x2)<br>if delta == 0:<br>&emsp;x1 = (-b) / (2 * a)<br>&emsp;print("One return: x1 = ", x1)<br>if delta < 0:<br>&emsp;print("No return")<br>exit(input(Press enter to exit))</py><br>
+            <h2>C</h2>
+            <c>#include "stdio.h"<br>#include "math.h"<br>int main(void)<br>{<br>&emsp;int a, b, c;<br>&emsp;printf("Please input a = ")<br>&emsp;scanf("%lf", &a);<br>&emsp;printf("Please input b = ");<br>&emsp;scanf("%lf", &b);<br>&emsp;printf("Please input c = ");<br>&emsp;scanf("%lf", &c);<br>&emsp;double x1, x2;<br>&emsp;double delta = (b * b) - (4 * a * c);<br>&emsp;if (delta > 0)<br>&emsp;{<br>&emsp;&emsp;x1 = ((-b) + sqrt(delta)) / (2 * a);<br>&emsp;&emsp;x2 = ((-b) - sqrt(delta)) / (2 * a);<br>&emsp;&emsp;printf("Two return: x1 = %d; x2 = %d\n", x1, x2);<br>&emsp;}<br>&emsp;if (delta == 0)<br>&emsp;{<br>&emsp;&emsp;x1 = (-b) / (2 * a);<br>&emsp;&emsp;printf("One return: x1 = %d\n", x1);<br>&emsp;}<br>&emsp;if (delta < 0)<br>&emsp;{<br>&emsp;&emsp;printf("No return\n");<br>&emsp;}<br>&emsp;return 0;<br>}</c>
+            <p>他们的原理相同，都是把一元二次方程转化成ax*x + bx + c = 0的格式，然后再用跟的判别式delta的(b * b) - (4 * a * c)形式，使用的是“公式法”求解。这是初中知识。显然，C的解法原理和Python一样，但是却多了一些代码。这种情况下Python更加合适。</p>
+        </article>
+    </body>
+</html>
